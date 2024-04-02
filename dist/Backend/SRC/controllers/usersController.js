@@ -67,8 +67,8 @@ const userController = {
     updateUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id } = req.params;
-                const { names, email, password } = req.body;
+                // const { id } = req.params;
+                const { id, names, email, password } = req.body;
                 if (!isValidEmail(email)) {
                     return res.status(500).json({ Invalid: 'Sorry!! You provided an invalid email.' });
                 }
@@ -90,8 +90,8 @@ const userController = {
     deleteUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id } = req.params;
-                const { email, password } = req.body;
+                //const { id } = req.params.userId;
+                const { id, email, password } = req.body;
                 if (!password) {
                     return res.status(400).json({ message: 'Password is required' });
                 }
@@ -153,14 +153,30 @@ const userController = {
                         const token = generateToken(user._id);
                         // res.cookie('jwt', token, { httpOnly: true, maxAge: age });
                         //const headers = new res.header;
-                        res.json({ "User login succes with id ": user._id });
-                        res.setHeader('Authorization', `${token}`);
+                        // res.json({ "User login succes with id ": user._id });
+                        //return res.setHeader('Authorization', `${token}`);
+                        //console.log(`User login succes with id :" ${user._id} `);
+                        res.set('authorization', `${token}`); // Set the authorization header
+                        console.log(`User login succes with id :" ${user._id} `);
+                        return res.status(200).json({ "User login succes with id ": user._id });
                     }
                     else {
                         return res.status(400).json({ Error: 'Login Failed. Password is incorrect !' });
                     }
                 }
                 //res.json({ "Login": "Login Success" });
+            }
+            catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Server Error' });
+            }
+        });
+    },
+    logout(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                res.set('Authorization', '');
+                res.status(200).json({ message: 'Logout successful' });
             }
             catch (error) {
                 console.error(error);

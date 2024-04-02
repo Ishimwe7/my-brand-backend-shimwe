@@ -1,17 +1,14 @@
+"use strict";
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/usersController');
 const authMiddleware = require('../middlewares/authMiddleware');
-
-
 /**
  * @swagger
  * tags:
  *   name: Users
  *   description: User management endpoints
  */
-
-
 /**
  * @swagger
  * /newUser:
@@ -56,7 +53,6 @@ router.post('/newUser', userController.createNewUser);
  *         description: Internal server error
  */
 router.get('/allUsers/:authorization/', authMiddleware, userController.getAllUsers);
-
 /**
  * @swagger
  * /getUser/{userId}:
@@ -83,7 +79,6 @@ router.get('/allUsers/:authorization/', authMiddleware, userController.getAllUse
  *         description: Internal server error
  */
 router.get('/getUser/:userId', userController.getUserById);
-
 /**
  * @swagger
  * /editUser:
@@ -111,7 +106,6 @@ router.get('/getUser/:userId', userController.getUserById);
  *         description: Internal server error
  */
 router.put('/editUser/:authorization/', authMiddleware, userController.updateUser);
-
 /**
  * @swagger
  * /login:
@@ -152,7 +146,6 @@ router.put('/editUser/:authorization/', authMiddleware, userController.updateUse
  *         description: Internal server error
  */
 router.post('/login', userController.login);
-
 /**
  * @swagger
  * /logout:
@@ -166,7 +159,6 @@ router.post('/login', userController.login);
  *         description: Internal server error
  */
 router.post('/logout', userController.logout);
-
 /**
  * @swagger
  * /deleteUser:
@@ -193,5 +185,4 @@ router.post('/logout', userController.logout);
  *         description: Internal server error
  */
 router.delete('/deleteUser/:authorization/', authMiddleware, userController.deleteUser);
-
 module.exports = router;

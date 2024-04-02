@@ -1,3 +1,4 @@
+"use strict";
 // const chai = require('chai');
 // const chaiHttp = require('chai-http');
 // //import chai from 'chai';
@@ -5,9 +6,7 @@
 // const app = require('../app'); // Assuming your Express app is exported from app.js
 // const expect = chai.expect;
 // //import express, { NextFunction, Request, Response } from 'express';
-
 // chai.use(chaiHttp);
-
 // describe('User Controller', () => {
 //     describe('createNewUser', () => {
 //         it('should create a new user', (done) => {
@@ -27,10 +26,8 @@
 //                     done();
 //                 });
 //         });
-
 //         // Add more test cases for edge cases like invalid input data, duplicate email, etc.
 //     });
-
 //     describe('updateUser', () => {
 //         it('should update an existing user', (done) => {
 //             chai.request(app)
@@ -48,9 +45,7 @@
 //                     done();
 //                 });
 //         });
-
 //         // Add more test cases for edge cases like updating with invalid data, user not found, etc.
 //     });
-
 //     // Add tests for other user controller methods like deleteUser, getAllUsers, getUserById, login
 // });

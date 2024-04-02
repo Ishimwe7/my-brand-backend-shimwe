@@ -1,3 +1,4 @@
+"use strict";
 // //import chai from "chai";
 // //import chaiHttp from "chai-http";
 // //import app from '../server'
@@ -9,11 +10,8 @@
 // //import chai from 'chai';
 // //import chaiHttp from 'chai-http'; // Assuming your Express app is exported from app.js
 // import express, { NextFunction, Request, Response } from 'express';
-
-
 // chai.use(chaiHttp);
 // const { expect } = chai;
-
 // describe('getAllMessage', () => {
 //     it('get list of messages', async () => {
 //         const message = await Message.find();

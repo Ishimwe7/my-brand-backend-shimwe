@@ -1,17 +1,19 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // //const express = require('express');
-const authMiddleware = require('../middlewares/authMiddleware')
-
-import express from "express";
+const authMiddleware = require('../middlewares/authMiddleware');
+const express_1 = __importDefault(require("express"));
 const BlogController = require('../controllers/blogsController');
-const router = express.Router();
-
+const router = express_1.default.Router();
 // /**
 //  * @swagger
 //  * tags:
 //  *   name: Blogs
 //  *   description: Blogs Endpoints
 //  */
-
 // /**
 //  * @swagger
 //  * /newBlog:
@@ -79,7 +81,6 @@ router.post('/newBlog/:authorization/', authMiddleware, BlogController.addBlog);
  *         description: Internal server error
  */
 router.get('/allBlogs/', BlogController.getAllBlogs);
-
 /**
  * @swagger
  * /getBlog/{blogId}:
@@ -106,7 +107,6 @@ router.get('/allBlogs/', BlogController.getAllBlogs);
  *         description: Internal server error
  */
 router.get('/getBlog/:blogId/:authorization/', authMiddleware, BlogController.getBlogById);
-
 /**
  * @swagger
  * /editBlog/{blogId}:
@@ -139,7 +139,6 @@ router.get('/getBlog/:blogId/:authorization/', authMiddleware, BlogController.ge
  *         description: Internal server error
  */
 router.put('/editBlog/:blogId/:authorization/', authMiddleware, BlogController.updateBlog);
-
 /**
  * @swagger
  * /deleteBlog/{blogId}:
@@ -162,7 +161,6 @@ router.put('/editBlog/:blogId/:authorization/', authMiddleware, BlogController.u
  *         description: Internal server error
  */
 router.delete('/deleteBlog/:blogId/:authorization/', authMiddleware, BlogController.deleteBlog);
-
 /**
  * @swagger
  * /addComment/{blogId}/comments:
@@ -183,7 +181,7 @@ router.delete('/deleteBlog/:blogId/:authorization/', authMiddleware, BlogControl
  *           schema:
  *             type: object
  *             properties:
- *               comment: 
+ *               comment:
  *                 type: string
  *             required:
  *               - comment
@@ -196,7 +194,6 @@ router.delete('/deleteBlog/:blogId/:authorization/', authMiddleware, BlogControl
  *         description: Internal server error
  */
 router.post('/addComment/:blogId/comments/:authorization/', authMiddleware, BlogController.addCommentToBlog);
-
 /**
  * @swagger
  * /addLike/{blogId}/like:
@@ -219,7 +216,6 @@ router.post('/addComment/:blogId/comments/:authorization/', authMiddleware, Blog
  *         description: Internal server error
  */
 router.post('/addLike/:blogId/like/:authorization/', authMiddleware, BlogController.likeBlog);
-
 /**
  * @swagger
  * /unLike/{blogId}/like:
@@ -242,5 +238,4 @@ router.post('/addLike/:blogId/like/:authorization/', authMiddleware, BlogControl
  *         description: Internal server error
  */
 router.delete('/unLike/:blogId/like/:authorization/', authMiddleware, BlogController.unlikeBlog);
-
 module.exports = router;

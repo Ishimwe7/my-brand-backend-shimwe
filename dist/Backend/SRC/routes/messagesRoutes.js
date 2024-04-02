@@ -1,16 +1,19 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // const express = require('express');
 // const router = express.Router();
-import express from "express";
-const router = express.Router();
+const express_1 = __importDefault(require("express"));
+const router = express_1.default.Router();
 const messageController = require('../controllers/messagesController');
-
 /**
  * @swagger
  * tags:
  *   name: Messages
  *   description: Messages endpoints
  */
-
 /**
  * @swagger
  * /messages/sendMessage:
@@ -55,7 +58,6 @@ router.post('/newMessage', messageController.sendMessage);
  *         description: Internal server error
  */
 router.get('/allMessages/:authorization/', messageController.getAllMessages);
-
 /**
  * @swagger
  * /messages/getMessage/{messageId}:
@@ -82,7 +84,6 @@ router.get('/allMessages/:authorization/', messageController.getAllMessages);
  *         description: Internal server error
  */
 router.get('/getMessage/:messageId/:authorization/', messageController.getMessageById);
-
 /**
  * @swagger
  * /messages/deleteMessage/{messageId}:
@@ -105,5 +106,4 @@ router.get('/getMessage/:messageId/:authorization/', messageController.getMessag
  *         description: Internal server error
  */
 router.delete('/deleteMessage/:messageId/:authorization/', messageController.deleteMessage);
-
 module.exports = router;

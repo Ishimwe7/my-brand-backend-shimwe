@@ -1,3 +1,4 @@
+"use strict";
 // //import chai from 'chai';
 // //import chaiHttp from 'chai-http';
 // const chai = require('chai');
@@ -5,9 +6,7 @@
 // const app = require('../app'); // Assuming your Express app is exported from app.js
 // const expect = chai.expect;
 // //import express, { NextFunction, Request, Response } from 'express';
-
 // chai.use(chaiHttp);
-
 // describe('Message Controller', () => {
 //     describe('sendMessage', () => {
 //         it('should send a message', (done) => {
@@ -28,7 +27,6 @@
 //                 });
 //         });
 //     });
-
 //     describe('deleteMessage', () => {
 //         it('should delete a message by ID', (done) => {
 //             // Make sure to replace ':messageId' with a valid message ID in your database
@@ -43,7 +41,6 @@
 //                 });
 //         });
 //     });
-
 //     describe('getAllMessages', () => {
 //         it('should get all messages', (done) => {
 //             chai.request(app)
@@ -56,7 +53,6 @@
 //                 });
 //         });
 //     });
-
 //     describe('getMessageById', () => {
 //         it('should get a message by ID', (done) => {
 //             // Make sure to replace ':messageId' with a valid message ID in your database
