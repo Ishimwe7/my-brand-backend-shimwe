@@ -1,6 +1,6 @@
 const joi = require('@hapi/joi');
 
-const userValidationSchema = new Schema({
+const userValidationSchema = joi.object({
     names: joi.string().required(),
     email: joi.string().email().lowercase().required(),
     password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),

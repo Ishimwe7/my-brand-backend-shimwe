@@ -8,15 +8,16 @@ app.use(cookieParser());
 
 const requireAuth = (req: Request, res: Response, next: NextFunction) => {
     // const token = req.cookies.jwt;
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = req.params.authorization;
+    // const token = authHeader && authHeader.split(' ')[1];
     if (token) {
         jwt.verify(token, "nyanja cyane secret", (err: any, decodedToken: any) => {
             if (err) {
-                res.json({ "Error": "Server error" });
+                return res.json({ "Un authorized": "Un authorized access to this End point" });
             }
             else {
-                res.json({ "Token": decodedToken });
+                //res.json({ "Token": decodedToken });
+                //re.user = decodedToken;
                 next();
             }
         })
@@ -26,4 +27,4 @@ const requireAuth = (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
-module.exports = { requireAuth };
+module.exports = requireAuth;

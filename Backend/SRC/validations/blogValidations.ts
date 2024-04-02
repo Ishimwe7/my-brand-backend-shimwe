@@ -1,4 +1,4 @@
-const joi = require('@hapi/joi');
+import joi  from '@hapi/joi';
 
 const blogValidationSchema = joi.object({
     _id: joi.string().optional(),
